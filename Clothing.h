@@ -1,4 +1,4 @@
-//Clothing.hpp
+//Clothing.h
 
 #ifndef Clothing_h
 #define Clothing_h
@@ -14,11 +14,14 @@ class Clothing: public item
 		int sizeL; //length
 		int sizeW; //width
 		int quantity;
-		void setClothingType(string);
-		void setSize(int sizeL, int sizeW);
 	
 	public:
 		Clothing() : item(){};
+		void print();
+		void setClothingType(string);
+		void setSize(int sizeL, int sizeW);
+		void printInfo();
+		void printInfo(string newClothing, int newL, int newW);
 		
 };
 
@@ -39,4 +42,18 @@ void Clothing::setSize(int newL, int newW){
 	sizeL = newL;
 	sizeW = newW;
 }
+void Clothing::printInfo(){
+	cout << type << "\n"
+		 << sizeL << "\n"
+		 << sizeW << "\n";
+}
+void Clothing::printInfo(string newClothing, int newL, int newW){
+	Clothing::setClothingType(newClothing);
+	Clothing::setSize(newL, newW);
+	
+	cout << type << "\n"
+		 << sizeL << "\n"
+		 << sizeW << "\n";
+}
+	
 #endif //Clothing_h
