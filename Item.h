@@ -30,13 +30,13 @@ public:
 };
 item::item(){
     name = "";
-    price = NULL;
+    price = 0;
     upc = "";
 }
 item::item(string nameh,double pricei,string upc2){
     name = nameh;
     price = pricei;
-    upc  = upc2
+    upc  = upc2;
 }
 string item::getname(){
     return name;
@@ -53,6 +53,7 @@ void item::setprice(double price2){
 void item::setupc(string upc2){
     upc = upc2;
 }
+
 string item::getupc(){
     return upc;
 }
