@@ -1,17 +1,8 @@
-//
-//  Food.hpp
-//  Project 2: Inheritance and Polymorphism
-//
-//  Created by william wright on 11/2/17.
-//  Copyright © 2017 SilverTap. All rights reserved.
-//
-
-
+//Item.h
 #ifndef Item_h
 #define Item_h
 #include <stdio.h>
 #include <iostream>
-#endif
 using namespace std;
 class item{
 private:
@@ -57,3 +48,4 @@ void item::setupc(string upc2){
 string item::getupc(){
     return upc;
 }
+#endif //Item.h
