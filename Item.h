@@ -1,14 +1,21 @@
-//Item.h
+
 #ifndef Item_h
 #define Item_h
 #include <stdio.h>
 #include <iostream>
+#endif
 using namespace std;
+//wow the item class its the default class for everything to depend apawn
+//it holds the 3 basic items that every product needs for a store
 class item{
 private:
+    //@define name holds the name of the product being sold
     string name;
+     //@define price holds the amount the product cost
     double price;
+     //@define upc holds the UPC number used to disigwish products
     string upc;
+    item* nextitem;
 public:
     item();
     item(string,double,string);
@@ -18,16 +25,31 @@ public:
     void setprice(double);
     string getupc();
     void setupc(string);
+    void setnextitem(item*);
+    item* getnextitem();
+    void getinfo();
+    item* makeitem();
+    string getinfoformated();
 };
+
 item::item(){
+    //default constuctor
     name = "";
-    price = 0;
+    price = NULL;
     upc = "";
 }
 item::item(string nameh,double pricei,string upc2){
+    //overloaded constructor
     name = nameh;
     price = pricei;
     upc  = upc2;
+}
+void item::setnextitem(item* next){
+    //returns nothing @paramators is an item list
+    nextitem = next;
+}
+item* item::getnextitem(){
+    return nextitem;
 }
 string item::getname(){
     return name;
@@ -44,8 +66,20 @@ void item::setprice(double price2){
 void item::setupc(string upc2){
     upc = upc2;
 }
-
 string item::getupc(){
     return upc;
 }
-#endif //Item.h
+void item::getinfo(){
+    cout<<"Name: "<<getname()<<" Price: "<< getprice()<<"$ UPC: "<< getupc();
+}
+string item::getinfoformated(){
+    
+    return (" "+name+" "+std::to_string(price)+" "+upc+"");
+}
+item* item::makeitem(){
+    item* temp = new item();
+    temp->setname(name);
+    temp->setupc(upc);
+    temp->setprice(price);
+    return temp;
+}
